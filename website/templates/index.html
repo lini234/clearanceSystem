@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block content %}
+<link href="static/css/index.css" rel="stylesheet"> <!-- Link to your CSS file -->
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow mb-4 border-primary mt-4" style="padding-right: 100px;">
+                <div class="card-body text-center">
+                    <h1 class="card-title text-left">Welcome to the MTU’s Exeat <br>Request System!</h1>
+                    <p class="card-text text-left text-justify">Submit your exeat requests anytime, anywhere and track their status right here.
+                        Whether it's a family event, medical appointment, or personal commitment, we're here to help you
+                        navigate the process smoothly.</p>
+                      <div class="col-16 d-flex justify-content-end align-items-start">
+                            <img src="static/img/background.png" alt="Logo" class="logo">
+                        </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow mb-4 border-primary">
+                <div class="card-body">
+                    <h2 class="card-title text-left">How It Works</h2>
+                    <p class="card-text text-left">Here's how the app works:</p>
+                    <ul>
+                        <li>Step 1: Do this</li>
+                        <li>Step 2: Do that</li>
+                        <li>Step 3: Do something else</li>
+                        <!-- Add more steps as needed -->
+                    </ul>
+                    <p class="card-text text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus consequat lorem at magna ullamcorper, nec interdum eros tincidunt. Aliquam ut dictum risus. Duis feugiat tortor sit amet libero tristique, nec venenatis libero luctus. Ut vel purus eu risus elementum efficitur. Donec vel elit quis elit viverra egestas. Integer ultricies sapien eu lorem molestie efficitur. Nullam rhoncus semper purus, eu eleifend arcu interdum sit amet.</p>
+                    <!-- Add more content as needed -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

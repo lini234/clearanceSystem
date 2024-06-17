@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Welcome{% endblock %}</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    /* Custom CSS */
+    .sidebar {
+      height: 100%;
+      width: 250px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #083763; /* Bootstrap dark background color */
+      padding-top: 60px; /* Adjust this value to match header height */
+    }
+    .custom-text{
+      color: #2C3AB1 !important; /* Change the text color to white */
+      font-weight: bold;
+    }
+    .content {
+      margin-left: 250px; /* Adjust this value to match sidebar width */
+      padding: 20px;
+    }
+    body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        /* Adjust this style for your top navbar */
+        .top-navbar {
+            /* Your top navbar styles here */
+        }
+        .sidebar {
+  width: 200px; /* Adjust width as needed */
+}
+
+.sidebar .nav-link {
+  display: block;
+  padding: 10px 20px;
+  margin: 5px 0;
+  background-color: #083763;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.sidebar .nav-link.active {
+  background-color: #0056b3;
+}
+
+.sidebar .nav-link.active:hover {
+  background-color: #003d80;
+}
+/* Custom CSS for your own icons */
+.icon {
+  width: 20px; /* Adjust the size as needed */
+  height: 20px;
+  margin-right: 8px; /* Space between icon and text */
+  vertical-align: middle;
+}
+/* Custom CSS for the logo */
+.logo {
+  width: 40px; /* Adjust the size as needed */
+  height: auto;
+  margin-right: 10px; /* Space between logo and text */
+}
+.navbar-brand{
+  display: flex;
+  align-items: center;
+}
+/* Custom CSS for the username text */
+.navbar-text {
+  font-weight: bold; /* Optionally, make the username text bold */
+}
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <a class="navbar-brand custom-text" href="#">eClearance</a>
+  <span class="navbar-text ml-auto">
+    {{ user.surname }} {{ user.otherNames }}<!-- Replace 'Username' with the actual username -->
+  </span>
+</nav>
+
+<main>
+
+<!-- Side Nav Bar -->
+<div class="sidebar">
+  <br><br>
+  <ul class="nav flex-column">
+    <li class="nav-item">
+      <a class="nav-link text-light" href="/"><img src="static/img/dashboard.png" alt="Dashboard Icon" class="icon">Dashboard</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-light" href="/clearance"><img src="static/img/form.png" alt="Form Icon" class="icon">Clearance</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-light" href="/logout"><img src="static/img/logout.png" alt="Logout Icon" class="icon">Logout</a>
+    </li>
+  </ul>
+</div>
+
+{% block content %}
+<!-- Main Content -->
+<div class="content">
+  <h2>Main Content Area</h2>
+  <p>This is where your main content will go.</p>
+</div>
+  {% endblock %}
+
+</main>
+<!-- Bootstrap JS (Optional, only needed if you want to use Bootstrap's JavaScript features) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', (event) => {
+    const currentLocation = location.pathname;
+    const menuItems = document.querySelectorAll('.nav-link');
+
+    menuItems.forEach((item) => {
+      if (item.getAttribute('href') === currentLocation) {
+        item.classList.add('active');
+      }
+    });
+  });
+</script>
+</body>
+</html>

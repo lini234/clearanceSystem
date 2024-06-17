@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Clearance Request Table</h2>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="alert alert-warning">
+            {% for category, message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% endwith %}
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Department</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for department, status in department_statuses %}
+            <tr>
+                <td>{{ department.title }}</td>
+                <td>{{ status }}</td>
+                <td>
+                    {% if status == 'Not Requested' %}
+                        <form method="POST" action="{{ url_for('views.clearance') }}" style="display: inline;">
+                            <input type="hidden" name="department_id" value="{{ department.id }}">
+                            <button type="submit" class="btn btn-primary">Request</button>
+                        </form>
+                    {% endif %}
+                    {% if status not in ['Not Requestable', 'Pending', 'Declined'] %}
+                        <form method="POST" action="{{ url_for('views.upload_documents') }}" enctype="multipart/form-data" style="display: inline;">
+                            <input type="hidden" name="department_id" value="{{ department.id }}">
+                            <input type="file" name="document" style="display: inline;">
+                            <button type="submit" class="btn btn-secondary">Upload Documents</button>
+                        </form>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Button to check if all clearances are approved before generating certificate -->
+    <button id="generateCertificateBtn" class="btn btn-success">Generate Certificate</button>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const generateCertificateBtn = document.getElementById('generateCertificateBtn');
+
+    generateCertificateBtn.addEventListener('click', function() {
+        // Logic to check if all clearances are approved
+        const allApproved = Array.from(document.querySelectorAll('td:nth-child(2)'))
+            .every(td => td.textContent.trim() === 'Approved');
+
+        if (allApproved) {
+            // Redirect to generate certificate route
+            window.location.href = '{{ url_for("views.generate_certificate_route", student_id=user.id) }}';
+        } else {
+            alert('Cannot generate certificate: Not all clearances are approved.');
+        }
+    });
+});
+</script>
+
+{% endblock %}

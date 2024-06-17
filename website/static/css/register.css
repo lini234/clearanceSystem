@@ -1,0 +1,35 @@
+/* Custom CSS */
+body {
+  background-color: #f8f9fa;
+}
+
+.form-container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.form-control:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow on hover */
+  border-color: #2C3AB1;
+}
+.custom-text{
+  color: #2C3AB1 !important; /* Change the text color to white */
+  font-weight: bold;
+  font-family: Roboto;
+  font-size: 24px;
+}
+.btn-custom {
+  background-color: #2C3AB1; /* Custom button color */
+  border-color: #2C3AB1; /* Matching border color */
+}
+.btn-custom:hover {
+  background-color: #1f2c77; /* Darker color on hover */
+  border-color: #1f2c77; /* Matching border color on hover */
+}
+.password-text{
+  color: #2C3AB1 !important; /* Change the text color to white */
+  font-weight: normal;
+  font-family: Roboto;
+  font-size: 16px;
+}

@@ -1,0 +1,37 @@
+/* Custom CSS */
+
+/* Style for the welcome section */
+.welcome-section {
+    background-color: #f8f9fa;
+    padding: 50px;
+    text-align: center;
+}
+
+/* Style for the how it works section */
+.how-it-works-section {
+    background-color: #e9ecef;
+    padding: 50px;
+}
+
+/* Additional styling for headings */
+h1, h2 {
+    color: #2C3AB1;
+    font-weight: bolder;
+    font-family: Roboto;
+    font-size: 24px
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .welcome-section, .how-it-works-section {
+        padding: 30px;
+    }
+}
+
+.logo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 130px;
+    height: 120px;
+}

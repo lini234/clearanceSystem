@@ -1,0 +1,39 @@
+/* Custom CSS */
+
+.shadow {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow to the form */
+}
+.btn-custom {
+  background-color: #083763; /* Custom button color */
+  border-color: #073662; /* Matching border color */
+}
+
+.btn-custom:hover {
+  background-color: #1f2c77; /* Darker color on hover */
+  border-color: #1f2c77; /* Matching border color on hover */
+}
+.custom-text{
+  color: #083763 !important; /* Change the text color to white */
+  font-weight: bold;
+  font-family: Poppins;
+  font-size: 24px;
+}
+.form-control:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow on hover */
+  border-color: #f8fdbe;
+}
+.container {
+  width: 8000px; /* Adjust the width as needed */
+  height: 6000px; /* Adjust the height as needed */
+  background-image: url('static/img/background.png'); /* Replace 'background.jpg' with the path to your image */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: white;
+}
+.password-text{
+  color: #083763 !important; /* Change the text color to white */
+  font-weight: normal;
+  font-family: Roboto;
+  font-size: 12px;
+}
